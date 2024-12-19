@@ -77,6 +77,7 @@ class App extends Component{
       <div  className="App">
           <h1>{this.state.data}</h1>
           <button onClick={()=>this.apple()}>Click Me</button>
+          <p>value will be increse</p>
       </div>
     )
   }
