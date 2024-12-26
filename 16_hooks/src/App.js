@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React,{useState,useEffect, use} from 'react';
+import React,{useState,useEffect} from 'react';
 
 //-----------------useState-------------
 
@@ -17,16 +17,41 @@ import React,{useState,useEffect, use} from 'react';
 
 //----------------------------useEffect-----------
 
+// function App() {
+//   const [count,setcount] = useState(0)
+//   useEffect(()=>{
+//     console.log("hello")
+//   })
+//   return (
+//     <div className="App">
+//       <h1>useEffect</h1>
+//       <h2>{count}</h2>
+//       <button onClick={()=>setcount(count+1)}>+ count</button>
+//     </div>
+//   );
+// }
+
+//----------------useEffect with conditional state------------------
+
 function App() {
-  const [count,setcount] = useState(0)
+  const [count,setcount] = useState(100)
+  const [data,setdata] = useState(10)
+
   useEffect(()=>{
-    console.log("hello")
-  })
+    console.log("update count")
+  },[count])
+  useEffect(()=>{
+    console.log("update data")
+  },[data])
   return (
     <div className="App">
-      <h1>useEffect</h1>
+      <h1>useEffect with conditional state</h1>
       <h2>{count}</h2>
+      <h2>{data}</h2>
+
       <button onClick={()=>setcount(count+1)}>+ count</button>
+      <button onClick={()=>setdata(data+1)}>+ data</button>
+
     </div>
   );
 }
